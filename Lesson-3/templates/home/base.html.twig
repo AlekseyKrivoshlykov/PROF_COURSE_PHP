@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        
+    </head>
+    <body>
+    <div> 
+        {% for img in templateArr %}
+        <a href="/showImages.php?id={{ img.id}}"><img src="{{ img.href }}" width="115px"></a>
+        {% endfor %}
+
+    </div>
+    </body>
+</html>
