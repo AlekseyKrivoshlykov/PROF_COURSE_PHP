@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\ProductRepository;
+use App\Repository\CategoryRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=ProductRepository::class)
+ * @ORM\Entity(repositoryClass=CategoryRepository::class)
  */
-class Product
+class Category
 {
     /**
      * @ORM\Id
@@ -23,9 +23,14 @@ class Product
     private $title;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $slug;
+
+    /**
      * @ORM\Column(type="integer")
      */
-    private $price;
+    private $parent_id;
 
     public function getId(): ?int
     {
@@ -44,14 +49,26 @@ class Product
         return $this;
     }
 
-    public function getPrice(): ?int
+    public function getSlug(): ?string
     {
-        return $this->price;
+        return $this->slug;
     }
 
-    public function setPrice(int $price): self
+    public function setSlug(string $slug): self
     {
-        $this->price = $price;
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getParentId(): ?int
+    {
+        return $this->parent_id;
+    }
+
+    public function setParentId(int $parent_id): self
+    {
+        $this->parent_id = $parent_id;
 
         return $this;
     }
