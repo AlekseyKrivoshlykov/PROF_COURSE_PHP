@@ -102,7 +102,7 @@ class User implements PasswordAuthenticatedUserInterface, UserInterface
 
     public function getRoles()
     {
-
+        return ['ROLE_USER'];
     }
 
 
@@ -138,12 +138,12 @@ class User implements PasswordAuthenticatedUserInterface, UserInterface
      */
     public function getUsername()
     {
-
+        return $this->email;
     }
 
     public function getUserIdentifier() 
     {
-
+        return $this->email;
     }
 
     public function isVerified(): bool
